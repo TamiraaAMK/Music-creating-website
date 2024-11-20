@@ -1,0 +1,6 @@
+<h2>All Music</h2>
+<ul>
+    <% music.forEach(song => { %>
+        <li><a href="/music/<%= song._id %>"><%= song.title %> by <%= song.artist %></a></li>
+    <% }) %>
+</ul>

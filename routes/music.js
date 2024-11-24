@@ -6,6 +6,32 @@ const mongoose = require('mongoose');
 
 
 // Add music form (define this route first)
+
+// GET: List all music
+router.get('/', async (req, res) => {
+    try {
+        const allMusic = await Music.find();
+        res.render('music_list', { music: allMusic });
+    } catch (error) {
+        res.status(500).send("Error retrieving music list");
+    }
+});
+
+// GET: Show details for a specific music item
+router.get('/:id', async (req, res) => {
+    try {
+        const music = await Music.findById(req.params.id);
+        const reviews = await Review.find({ musicId: req.params.id });
+        if (!music) {
+            return res.status(404).send("Music not found");
+        }
+        res.render('music_detail', { music, reviews });
+    } catch (error) {
+        res.status(500).send("Error retrieving music details");
+    }
+});
+
+// GET: Show form to add new music
 router.get('/add', (req, res) => {
     res.render('add_music');
 });

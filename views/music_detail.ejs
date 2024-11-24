@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<h2><%= music.title %> by <%= music.artist %></h2>
+<p>Genre: <%= music.genre %> | Released: <%= music.releaseYear %></p>
+<p>Average Rating: <%= music.averageRating %> / 5</p>
+
+<h3>Reviews</h3>
+<% if (reviews.length > 0) { %>
+    <ul>
+        <% reviews.forEach(review => { %>
+            <li>
+                <strong><%= review.username %>:</strong> 
+                <%= review.reviewText %> - Rating: <%= review.rating %>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No reviews yet. Be the first to review!</p>
+<% } %>
+
+<%- include('partials/footer') %>

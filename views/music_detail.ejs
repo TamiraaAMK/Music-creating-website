@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<h2><%= music.title %> by <%= music.artist %></h2>
+<p><strong>Genre:</strong> <%= music.genre %></p>
+<p><strong>Release Year:</strong> <%= music.releaseYear %></p>
+<p><strong>Average Rating:</strong> <%= music.averageRating || "No ratings yet" %></p>
+
+<h3>Reviews</h3>
+<% if (reviews.length > 0) { %>
+    <ul>
+        <% reviews.forEach(review => { %>
+            <li>
+                <strong><%= review.username %>:</strong> 
+                <%= review.rating %> stars - <%= review.reviewText || "No review text" %>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No reviews yet. Be the first to add one!</p>
+<% } %>
+
+<h3>Add a Review</h3>
+<form action="/music/<%= music._id %>/review" method="POST">
+    <label>Username: <input type="text" name="username" required></label><br>
+    <label>Rating (1-5): <input type="number" name="rating" min="1" max="5" required></label><br>
+    <label>Review Text: <textarea name="reviewText"></textarea></label><br>
+    <button type="submit">Submit Review</button>
+</form>
+
+<%- include('partials/footer') %>

@@ -1,6 +1,24 @@
+<<<<<<< HEAD
 <h2>All Music</h2>
 <ul>
     <% music.forEach(song => { %>
         <li><a href="/music/<%= song._id %>"><%= song.title %> by <%= song.artist %></a></li>
     <% }) %>
 </ul>
+=======
+<%- include('partials/header') %>
+
+<h2>All Music</h2>
+
+<% if (music.length > 0) { %>
+    <ul>
+        <% music.forEach(song => { %>
+            <li><a href="/music/<%= song._id %>"><%= song.title %> by <%= song.artist %></a></li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No music available. Add some music!</p>
+<% } %>
+
+<%- include('partials/footer') %>
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774

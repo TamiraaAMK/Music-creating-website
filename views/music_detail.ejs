@@ -1,9 +1,14 @@
 <%- include('partials/header') %>
 
 <h2><%= music.title %> by <%= music.artist %></h2>
+<<<<<<< HEAD
 <p><strong>Genre:</strong> <%= music.genre %></p>
 <p><strong>Release Year:</strong> <%= music.releaseYear %></p>
 <p><strong>Average Rating:</strong> <%= music.averageRating || "No ratings yet" %></p>
+=======
+<p>Genre: <%= music.genre %> | Released: <%= music.releaseYear %></p>
+<p>Average Rating: <%= music.averageRating %> / 5</p>
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774
 
 <h3>Reviews</h3>
 <% if (reviews.length > 0) { %>
@@ -11,11 +16,16 @@
         <% reviews.forEach(review => { %>
             <li>
                 <strong><%= review.username %>:</strong> 
+<<<<<<< HEAD
                 <%= review.rating %> stars - <%= review.reviewText || "No review text" %>
+=======
+                <%= review.reviewText %> - Rating: <%= review.rating %>
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774
             </li>
         <% }) %>
     </ul>
 <% } else { %>
+<<<<<<< HEAD
     <p>No reviews yet. Be the first to add one!</p>
 <% } %>
 
@@ -27,4 +37,9 @@
     <button type="submit">Submit Review</button>
 </form>
 
+=======
+    <p>No reviews yet. Be the first to review!</p>
+<% } %>
+
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774
 <%- include('partials/footer') %>

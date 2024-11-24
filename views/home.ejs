@@ -1,4 +1,5 @@
 <%- include('partials/header') %>
+<<<<<<< HEAD
 <h2>Top Rated Music</h2>
 <ul>
     <% music.forEach(song => { %>
@@ -6,3 +7,20 @@
     <% }) %>
 </ul>
 <%- include('partials/footer') %>
+=======
+
+<h2>Top Rated Music</h2>
+
+<% if (music.length > 0) { %>
+    <ul>
+        <% music.forEach(song => { %>
+            <li><a href="/music/<%= song._id %>"><%= song.title %> by <%= song.artist %></a> - Rating: <%= song.averageRating %></li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>No top-rated music available.</p>
+<% } %>
+
+<%- include('partials/footer') %>
+
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774

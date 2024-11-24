@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "app.js",
     "dependencies": {
+<<<<<<< HEAD
         "dotenv": "^16.0.0",
         "ejs": "^3.1.6",
         "express": "^4.18.1",
@@ -13,3 +14,15 @@
         "start": "nodemon app.js"
     }
 }
+=======
+      "dotenv": "^16.0.0",
+      "ejs": "^3.1.6",
+      "express": "^4.18.1",
+      "mongoose": "^6.7.0"
+    },
+    "scripts": {
+      "start": "node app.js"
+    }
+  }
+  
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,11 +7,64 @@ body {
 
 header, footer {
     background: #333;
+=======
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header, footer {
+    background-color: #333;
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774
     color: white;
     padding: 1rem;
     text-align: center;
 }
 
+<<<<<<< HEAD
 main {
     padding: 1rem;
 }
+=======
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 1rem 0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 1rem;
+    }
+}
+
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774

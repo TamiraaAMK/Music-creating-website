@@ -7,10 +7,13 @@ require('dotenv').config();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+<<<<<<< HEAD
 app.use(express.urlencoded({ extended: true }));
 
 // Fix for Mongoose strictQuery warning
 mongoose.set('strictQuery', true);
+=======
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -21,9 +24,12 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const indexRoutes = require('./routes/index');
 const musicRoutes = require('./routes/music');
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f67922986e180db18a768c8e723b9dcf30441774
 app.use('/', indexRoutes);
 app.use('/music', musicRoutes);
 

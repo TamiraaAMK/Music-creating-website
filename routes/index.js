@@ -8,6 +8,4 @@ router.get('/', async (req, res) => {
     res.render('home', { music: topMusic });
 });
 
-
-
 module.exports = router;

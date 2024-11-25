@@ -3,15 +3,15 @@ const router = express.Router();
 const Music = require('../models/music');
 const Review = require('../models/review');
 const mongoose = require('mongoose');
+const { isAuthenticated } = require('../middleware/auth'); // Import the isAuthenticated middleware
 
-
-// Add music form (define this route first)
-router.get('/add', (req, res) => {
+// Add music form (protected route)
+router.get('/add', isAuthenticated, (req, res) => {
     res.render('add_music');
 });
 
-// Handle add music submission
-router.post('/add', async (req, res) => {
+// Handle add music submission (protected route)
+router.post('/add', isAuthenticated, async (req, res) => {
     const { title, artist, genre, releaseYear } = req.body;
     try {
         await Music.create({ title, artist, genre, releaseYear });
@@ -22,12 +22,13 @@ router.post('/add', async (req, res) => {
     }
 });
 
-// Music list
+// Music list (public route)
 router.get('/', async (req, res) => {
     const allMusic = await Music.find();
     res.render('music_list', { music: allMusic });
 });
 
+// Music detail (public route)
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
 

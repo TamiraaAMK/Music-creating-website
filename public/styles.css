@@ -48,13 +48,16 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
+main {
+    flex: 1; /* Pushes the footer to the bottom when content is short */
+}
+
 /* Main Content */
 main .container {
     max-width: 1100px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
-
 .top-rated h2 {
     text-align: center;
     border-bottom: 2px solid #333;
@@ -105,6 +108,12 @@ main .container {
 .music-artist {
     font-style: italic;
     color: #555;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
 }
 
 /* Footer Section */

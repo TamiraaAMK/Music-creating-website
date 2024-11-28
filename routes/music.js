@@ -29,10 +29,8 @@ router.post('/add', async (req, res) => {
         });
 
         await newMusic.save();
-        console.log('Music added successfully:', newMusic);
         res.redirect('/music');
     } catch (error) {
-        console.error('Error adding music:', error);
         res.status(500).send('Server error');
     }
 });

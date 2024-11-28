@@ -1,8 +1,16 @@
 <%- include('partials/header') %>
-<h2>Top Rated Music</h2>
-<ul>
-    <% music.forEach(song => { %>
-        <li><a href="/music/<%= song._id %>"><%= song.title %> by <%= song.artist %></a></li>
-    <% }) %>
-</ul>
+<main>
+    <section class="top-rated">
+        <h2>Top Rated Music</h2>
+        <ul>
+            <% music.forEach(song => { %>
+                <li class="music-item">
+                    <a href="/music/<%= song._id %>">
+                        <strong><%= song.title %></strong> by <em><%= song.artist %></em>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
+</main>
 <%- include('partials/footer') %>

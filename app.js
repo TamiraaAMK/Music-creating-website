@@ -5,12 +5,14 @@ const app = express();
 const authRoutes = require('./routes/auth');
 const indexRoutes = require('./routes/index');
 const musicRoutes = require('./routes/music');
+const path = require('path');
 require('dotenv').config();
 
 // Middleware
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Session setup
 app.use(session({

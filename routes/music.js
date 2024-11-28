@@ -11,16 +11,42 @@ router.get('/add', isAuthenticated, (req, res) => {
 });
 
 // Handle add music submission (protected route)
-router.post('/add', isAuthenticated, async (req, res) => {
-    const { title, artist, genre, releaseYear } = req.body;
+router.post('/:id/review', async (req, res) => {
+    const { id } = req.params;
+    const { username, rating, reviewText } = req.body;
+
+    if (!mongoose.isValidObjectId(id)) {
+        console.log('Invalid music ID:', id);
+        return res.status(400).send('Invalid music ID');
+    }
+
     try {
-        await Music.create({ title, artist, genre, releaseYear });
-        res.redirect('/music');
+        const music = await Music.findById(id);
+        if (!music) {
+            console.log('Music not found:', id);
+            return res.status(404).send('Music not found');
+        }
+
+        const newReview = await Review.create({
+            musicId: id,
+            username,
+            rating: parseInt(rating),
+            reviewText
+        });
+
+        const reviews = await Review.find({ musicId: id });
+        const averageRating = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+
+        music.averageRating = averageRating.toFixed(1);
+        await music.save();
+
+        res.redirect(`/music/${id}`);
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Error adding music');
+        console.error('Error adding review:', error);
+        res.status(500).send('Server error');
     }
 });
+
 
 // Music list (public route)
 router.get('/', async (req, res) => {

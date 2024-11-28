@@ -1,140 +1,117 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
     color: #333;
-    background-color: #f9f9f9;
-    padding: 0 20px;
+    background-color: #f4f4f9;
 }
 
+/* Header Section */
 header {
-    background: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+header .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
-    font-size: 2rem;
+    margin: 0;
 }
 
-nav {
-    margin-top: 10px;
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-nav a {
-    color: white;
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
     text-decoration: none;
-    margin: 0 10px;
     font-weight: bold;
 }
 
-nav a:hover {
+header nav ul li a:hover {
     text-decoration: underline;
 }
 
-main {
-    margin: 20px auto;
-    max-width: 800px;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Main Content */
+main .container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-/* Headings */
-h2 {
-    font-size: 1.8rem;
-    color: #007bff;
-    margin-bottom: 10px;
+.top-rated h2 {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    color: #333;
 }
 
-h3 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-}
-
-/* Music Details */
-p {
-    margin: 10px 0;
-    font-size: 1rem;
-}
-
-strong {
-    font-weight: bold;
-}
-
-/* Reviews Section */
-ul {
+.music-list {
     list-style: none;
-    margin: 20px 0;
     padding: 0;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
 }
 
-ul li {
-    background: #f0f0f0;
-    margin: 10px 0;
-    padding: 10px;
+.music-item {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    border-left: 5px solid #007bff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
 }
 
-/* Form Styling */
-form {
-    margin-top: 20px;
+.music-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-form label {
-    display: block;
-    margin: 10px 0 5px;
+.music-item a {
+    text-decoration: none;
+    color: #333;
     font-weight: bold;
+    display: block;
 }
 
-form input, form textarea, form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
+.music-item a:hover {
+    color: #007BFF;
 }
 
-form button {
-    background: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
+.music-title {
+    font-size: 1.2rem;
+    display: block;
 }
 
-form button:hover {
-    background: #0056b3;
+.music-artist {
+    font-style: italic;
+    color: #555;
 }
 
-/* Footer */
+/* Footer Section */
 footer {
     text-align: center;
-    margin-top: 20px;
-    padding: 10px;
+    padding: 1rem 0;
     background: #333;
-    color: white;
-    border-radius: 5px;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    body {
-        padding: 0 10px;
-    }
-
-    main {
-        padding: 15px;
-    }
+    color: #fff;
+    margin-top: 2rem;
 }

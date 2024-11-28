@@ -1,16 +1,129 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset styles for a clean starting point */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;  /* Ensures consistent sizing for all elements */
 }
 
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;  /* Use a clean, readable font */
+    line-height: 1.6;  /* Spacing between lines of text */
+    background-color: #f4f4f4;  /* Light gray background */
+}
+
+/* Styling for header and footer */
 header, footer {
-    background: #333;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+    background-color: #333;  /* Dark background color */
+    color: white;  /* White text for contrast */
+    padding: 1rem;  /* Padding around the content */
+    text-align: center;  /* Center the content */
 }
 
+footer {
+    font-size: 0.9rem;  /* Slightly smaller font size for the footer */
+}
+
+/* Navigation link styling */
+nav a {
+    margin: 0 15px;  /* Space between each link */
+    color: white;  /* White text */
+    text-decoration: none;  /* Remove underlines */
+    font-weight: bold;  /* Bold text for emphasis */
+}
+
+nav a:hover {
+    color: #ffb300;  /* Change color on hover */
+}
+
+/* Main content area */
 main {
-    padding: 1rem;
+    padding: 2rem;  /* Padding around the main content */
+}
+
+/* Link styling */
+a {
+    text-decoration: none;  /* Remove underlines from links */
+    color: #333;  /* Dark gray text */
+}
+
+a:hover {
+    color: #ffb300;  /* Change link color on hover */
+}
+
+/* Form styling */
+form {
+    margin-top: 1rem;  /* Space above the form */
+    background-color: #fff;  /* White background for the form */
+    padding: 1rem;  /* Padding inside the form */
+    border-radius: 5px;  /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Light shadow for depth */
+}
+
+/* Input and button styling */
+input, button {
+    margin-bottom: 1rem;  /* Space below each input and button */
+    padding: 0.5rem;  /* Padding inside inputs and buttons */
+    width: 100%;  /* Make inputs and buttons fill the container */
+    border-radius: 5px;  /* Rounded corners */
+    border: 1px solid #ccc;  /* Light border for inputs */
+}
+
+/* Button styling */
+button {
+    background-color: #333;  /* Dark background for the button */
+    color: white;  /* White text */
+    cursor: pointer;  /* Pointer cursor to show it's clickable */
+}
+
+button:hover {
+    background-color: #ffb300;  /* Change button color on hover */
+}
+
+/* Success message styling */
+#success-message {
+    background-color: #4CAF50;  /* Green background for success message */
+    color: white;  /* White text */
+    padding: 10px;  /* Padding inside the message */
+    border-radius: 5px;  /* Rounded corners */
+    display: none;  /* Initially hidden */
+    margin-top: 1rem;  /* Space above the success message */
+}
+
+/* List styling */
+ul {
+    list-style-type: none;  /* Remove bullet points */
+}
+
+li {
+    margin: 1rem 0;  /* Space between each list item */
+}
+
+/* Responsive layout adjustments - Media Query for Small Screens (e.g. mobile devices) */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;  /* Stack navigation links vertically */
+        align-items: center;  /* Center the links */
+    }
+
+    nav a {
+        margin: 10px 0;  /* Space between stacked links */
+    }
+
+    main {
+        padding: 1rem;  /* Less padding on smaller screens */
+    }
+
+    form input,
+    form button {
+        width: 100%;  /* Full-width form inputs and buttons */
+    }
+}
+
+/* Media query for larger screens (tablets and small laptops) */
+@media (max-width: 1024px) {
+    main {
+        padding: 1.5rem;  /* More padding on medium screens */
+    }
 }

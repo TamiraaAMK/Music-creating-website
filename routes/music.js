@@ -11,13 +11,10 @@ router.get('/add', isAuthenticated, (req, res) => {
 });
 
 router.post('/add', async (req, res) => {
-    console.log('Form data received:', req.body);
-
     const { title, artist, genre, releaseYear } = req.body;
 
     try {
         if (!title || !artist || !genre || !releaseYear) {
-            console.log('Validation failed: Missing fields');
             return res.status(400).send('All fields are required');
         }
 

@@ -10,6 +10,34 @@ router.get('/add', isAuthenticated, (req, res) => {
     res.render('add_music');
 });
 
+router.post('/add', async (req, res) => {
+    console.log('Form data received:', req.body);
+
+    const { title, artist, genre, releaseYear } = req.body;
+
+    try {
+        if (!title || !artist || !genre || !releaseYear) {
+            console.log('Validation failed: Missing fields');
+            return res.status(400).send('All fields are required');
+        }
+
+        const newMusic = new Music({
+            title,
+            artist,
+            genre,
+            releaseYear: parseInt(releaseYear)
+        });
+
+        await newMusic.save();
+        console.log('Music added successfully:', newMusic);
+        res.redirect('/music');
+    } catch (error) {
+        console.error('Error adding music:', error);
+        res.status(500).send('Server error');
+    }
+});
+
+
 // Handle add music submission (protected route)
 router.post('/:id/review', async (req, res) => {
     const { id } = req.params;
